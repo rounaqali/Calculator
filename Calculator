@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="calculatorpng.png">
+
+    <title>CALCULATOR</title>
+    <style>
+        .container {
+            border: 2px aqua solid;
+            height: 350px;
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            background-color: black;
+        }
+        
+        #display {
+            height: 80px;
+            width: 300px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            color: aqua;
+            font-size: 2em;
+            padding-top: 40px;
+            text-align: right;
+            background-color: black;
+            border: 1px solid;
+        }
+        
+        .row input {
+            height: 45px;
+            width: 45px;
+            margin: 7px 0px 0px 21px;
+            border-radius: 5px;
+            background-color: black;
+            color: aqua;
+            font-size: 1.5em;
+            box-shadow: 2px 2px;
+        }
+        
+        .row input:active {
+            height: 40px;
+            width: 40px;
+        }
+        
+        #equal {
+            width: 115px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dis"><input type="text" id="display" placeholder="0000000000000000"></div>
+        <div class="row"><input type="button" value="AC" onclick="clr()">
+            <input type="button" value="DE" onclick="display.value=display.value.toString().slice(0,-1)">
+            <input type="button" value="." onclick="fun('.')">
+            <input type="button" value="/" onclick="fun('/')">
+        </div>
+        <div class="row"><input type="button" value="7" onclick="fun(7)">
+            <input type="button" value="8" onclick="fun(8)">
+            <input type="button" value="9" onclick="fun(9)">
+            <input type="button" value="*" onclick="fun('*')">
+        </div>
+        <div class="row"><input type="button" value="4" onclick="fun(4)">
+            <input type="button" value="5" onclick="fun(5)">
+            <input type="button" value="6" onclick="fun(6)">
+            <input type="button" value="-" onclick="fun('-')">
+        </div>
+        <div class="row"><input type="button" value="1" onclick="fun(1)">
+            <input type="button" value="2" onclick="fun(2)">
+            <input type="button" value="3" onclick="fun(3)">
+            <input type="button" value="+" onclick="fun('+')">
+        </div>
+        <div class="row"><input type="button" value="0" onclick="fun(0)">
+            <input type="button" value="00" onclick="fun('00')">
+            <input type="button" value="=" id="equal" onclick="solution()">
+
+        </div>
+
+
+    </div>
+    <script>
+        function fun(a) {
+            document.getElementById("display").value += a;
+        }
+
+        function clr() {
+            document.getElementById("display").value = "";
+        }
+
+        function solution() {
+            let a = document.getElementById("display").value;
+            let b = eval(a);
+            document.getElementById("display").value = b;
+        }
+    </script>
+
+</body>
+
+</html>
